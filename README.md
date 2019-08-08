@@ -1,2 +1,0 @@
-# Astragalomancy
-Created with CodeSandbox
