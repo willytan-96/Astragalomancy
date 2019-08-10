@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import SC from "styled-components";
+import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import colors from "../../constants/colors";
+import HeaderNavigationURLS from "../../constants/navigation-header-urls";
 
 const HeaderContainer = SC.div`
   background-color: ${colors.primaryColor};
@@ -41,6 +43,10 @@ const HamburgerButton = SC.div`
 const DropdownContainer = SC.div`
   background-color: ${colors.primaryColor};
   border-bottom: 1px solid ${colors.primaryBorderColor};
+
+  > a {
+    text-decoration: none;
+  }
 `;
 
 const DropdownLink = SC.div`
@@ -57,21 +63,29 @@ const DropdownLink = SC.div`
   }
 `;
 
+const LinkComponent = props => {
+  const { title, path } = props.item;
+  return (
+    <Link to={path}>
+      <DropdownLink>{title}</DropdownLink>
+    </Link>
+  );
+};
+
 export default function Header() {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
   const DropdownComponents = () => (
     <DropdownContainer>
-      <DropdownLink>Link1</DropdownLink>
-      <DropdownLink>Link1</DropdownLink>
-      <DropdownLink>Link1</DropdownLink>
-      <DropdownLink>Link1</DropdownLink>
+      {HeaderNavigationURLS.map((item, index) => (
+        <LinkComponent key={index} item={item} />
+      ))}
     </DropdownContainer>
   );
 
   return (
     <div>
       <HeaderContainer>
-        <TitleBar>Willy Tan</TitleBar>
+        <TitleBar>Personal Resume</TitleBar>
         <HamburgerButton
           onClick={() => setDropdownVisibility(!dropdownVisibility)}
         >
