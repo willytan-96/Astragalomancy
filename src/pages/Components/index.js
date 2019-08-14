@@ -1,5 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
+import ButtonSection from "./Sections/ButtonSection";
 
 export default () => {
-  return <div>test</div>;
+  return (
+    <Fragment>
+      <ButtonSection />
+    </Fragment>
+  )
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import ReactOutsideClick from "react-outside-click-handler";
 import SC from "styled-components";
 import colors from "../../constants/colors";
 import HeaderNavigationURLS from "../../constants/navigation-header-urls";
@@ -92,7 +93,15 @@ export default function Header() {
           <FaBars />
         </HamburgerButton>
       </HeaderContainer>
-      {dropdownVisibility && <DropdownComponents />}
+      {dropdownVisibility && (
+        <ReactOutsideClick
+          onOutsideClick={() => {
+            setDropdownVisibility(!dropdownVisibility);
+          }}
+        >
+          <DropdownComponents />
+        </ReactOutsideClick>
+      )}
     </div>
   );
 }
