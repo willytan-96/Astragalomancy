@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SC from "styled-components";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import SC from "styled-components";
 import colors from "../../constants/colors";
 import HeaderNavigationURLS from "../../constants/navigation-header-urls";
 
@@ -74,6 +74,7 @@ const LinkComponent = props => {
 
 export default function Header() {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
+
   const DropdownComponents = () => (
     <DropdownContainer>
       {HeaderNavigationURLS.map((item, index) => (
@@ -81,7 +82,6 @@ export default function Header() {
       ))}
     </DropdownContainer>
   );
-
   return (
     <div>
       <HeaderContainer>
