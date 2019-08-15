@@ -6,8 +6,13 @@ import Size from "./../../../constants/size";
 import { StyleType, SizeType } from "./../../../constants/types";
 
 const StyledButton = StyledComponent.div`
+	background-color: ${
+		({ isEnable }) => isEnable ? Colors.disabledColor : 'unset'
+	}	
+
 	border: 1px solid ${
-		({ styleType }) =>
+		({ styleType, isEnable }) =>
+			isEnable ? Colors.disabledBorderColor :
 			styleType === StyleType.primary ? Colors.primaryBorderColor :
 			styleType === StyleType.secondary ? Colors.secondaryBorderColor :
 			Colors.blackColor
@@ -19,7 +24,8 @@ const StyledButton = StyledComponent.div`
 	};
 
 	color: ${
-		({ styleType }) =>
+		({ styleType, isEnable }) =>
+			isEnable ? Colors.whiteColor :
 			styleType === StyleType.primary ? Colors.primaryColor :
 			styleType === StyleType.secondary ? Colors.secondaryColor :
 			Colors.blackColor
@@ -36,7 +42,8 @@ const StyledButton = StyledComponent.div`
 	
 	&:hover {
 		background-color: ${
-			({ styleType }) =>
+			({ styleType, isEnable }) =>
+				isEnable ? Colors.disabledColor :
 				styleType === StyleType.primary ? Colors.primaryColor :
 				styleType === StyleType.secondary ? Colors.secondaryColor :
 				Colors.blackColor
@@ -48,6 +55,7 @@ const StyledButton = StyledComponent.div`
 
 	cursor: pointer;
 	display: inline-block;
+	outline: 0;
 	text-align: center;
 
 `
@@ -65,11 +73,13 @@ class Button extends React.PureComponent {
 
 		return (
 			<StyledButton
-				disabled={EnableStatus}
+				isEnable={EnableStatus}
 				isRounded={RoundedStatus}
 				onClick={onClickEvent}
 				sizeType={ButtonSizeType}
 				styleType={ButtonStyleType}
+				role="button"
+				tabIndex={0}
 			>
 				{ButtonLabel}
 			</StyledButton>

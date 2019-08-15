@@ -8,17 +8,26 @@ export default () => {
     {
       title: "PRIMARY",
       groupItems: [
-        { style: "PRIMARY", size: "SMALL"},
-        { style: "PRIMARY", size: "MEDIUM"},
-        { style: "PRIMARY", size: "LARGE"},
+        { style: "PRIMARY", size: "SMALL" },
+        { style: "PRIMARY", size: "MEDIUM" },
+        { style: "PRIMARY", size: "LARGE" },
+        { style: "PRIMARY", size: "SMALL", isEnable: false }
       ]
     },
     {
       title: "SECONDARY",
       groupItems: [
-        { style: "SECONDARY", size: "SMALL"},
-        { style: "SECONDARY", size: "MEDIUM"},
-        { style: "SECONDARY", size: "LARGE"}
+        { style: "SECONDARY", size: "SMALL" },
+        { style: "SECONDARY", size: "MEDIUM" },
+        { style: "SECONDARY", size: "LARGE" }
+      ]
+    },
+    {
+      title: "DISABLED",
+      groupItems: [
+        { style: "PRIMARY", size: "SMALL", isEnable: true },
+        { style: "PRIMARY", size: "MEDIUM", isEnable: true },
+        { style: "PRIMARY", size: "LARGE", isEnable: true }
       ]
     }
   ]
@@ -41,6 +50,7 @@ export default () => {
                         text="Button 1"
                         buttonStyle={GroupItem.style}
                         buttonSize={GroupItem.size}
+                        isEnable={GroupItem.isEnable}
                       />
                     </ButtonContainer>
                   ))
