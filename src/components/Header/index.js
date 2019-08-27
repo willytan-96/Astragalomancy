@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import ReactOutsideClick from "react-outside-click-handler";
 import SC from "styled-components";
@@ -73,8 +73,13 @@ const LinkComponent = props => {
   );
 };
 
-export default function Header() {
+function Header(props) {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
+  
+  // TODO : Set listener for detect route change
+  props.history.listen(() => {
+    setDropdownVisibility(false);
+  });
 
   const DropdownComponents = () => (
     <DropdownContainer>
@@ -105,3 +110,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default withRouter(Header);

@@ -1,7 +1,13 @@
 import React, { Fragment } from "react";
 import StyledComponent from "styled-components";
 import Button from "./../../../components/Reuseable/Button";
-import Colors from "./../../../constants/colors";
+import {
+  Container,
+  GroupContainer,
+  GroupItemContainer,
+  HeaderTitle,
+  ItemContainer,
+} from '../SectionStyles';
 
 export default () => {
   const GroupButton = [
@@ -32,72 +38,30 @@ export default () => {
     }
   ]
   return (
-    <Fragment>
-      <Container>
-        <HeaderTitle>Buttons</HeaderTitle>
-        <ItemContainer>
-          {GroupButton.map(Group => (
-            <GroupContainer>
-              <label>{Group.title}</label>
-              <GroupItemContainer>
-                {
-                  Group.groupItems.map( GroupItem => (
-                    <ButtonContainer>
-                      <label>
-                        {GroupItem.size}
-                      </label>
-                      <Button
-                        text="Button 1"
-                        buttonStyle={GroupItem.style}
-                        buttonSize={GroupItem.size}
-                        isEnable={GroupItem.isEnable}
-                      />
+    <Container>
+      <HeaderTitle>Buttons</HeaderTitle>
+      <ItemContainer>
+        {GroupButton.map((Group, groupKey) => (
+          <GroupContainer key={groupKey}>
+            <label>{Group.title}</label>
+            <GroupItemContainer>
+              {
+                Group.groupItems.map(
+                  ({size, style, isEnable = false}, itemKey) => (
+                    <ButtonContainer key={itemKey}>
+                      <label>{size}</label>
+                      <Button text="Button 1" buttonStyle={style} buttonSize={size} isEnable={isEnable} />
                     </ButtonContainer>
-                  ))
-                }
-              </GroupItemContainer>
-            </GroupContainer>
-          ))}
-        </ItemContainer>
-      </Container>
-    </Fragment>
-  )
+                  )
+                )
+              }
+            </GroupItemContainer>
+          </GroupContainer>
+        ))}
+      </ItemContainer>
+    </Container>
+  );
 };
-
-const Container = StyledComponent.div`
-  margin: 16px 0px;
-`
-
-const HeaderTitle = StyledComponent.h2`
-  border-bottom: 1px solid ${Colors.primaryColor};
-  color: ${Colors.primaryColor};
-  margin: 0px 0px 16px 0px;
-  padding: 0px 30px 8px 30px;
-`;
-
-const ItemContainer = StyledComponent.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 0px 16px;
-`;
-
-const GroupContainer = StyledComponent.div`
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-
-  > label {
-    color: ${Colors.primaryColor};
-    padding: 0px 8px;
-  }
-`;
-
-const GroupItemContainer = StyledComponent.div`
-  display: flex;
-  flex-direction: row;
-  padding: 4px;
-`
 
 const ButtonContainer = StyledComponent.div`
   display: flex;
