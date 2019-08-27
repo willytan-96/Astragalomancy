@@ -1,3 +1,5 @@
+import { StyleType } from './types';
+
 const Colors = {
   primaryColor: "#eb3434",
   primaryBorderColor: "#bf2222",
@@ -11,5 +13,11 @@ const Colors = {
   whiteColor: "#ffffff",
   blackColor: "black",
 };
+
+export const getColorByType = (styleType) => (
+  styleType === StyleType.primary ? Colors.primaryBorderColor :
+  styleType === StyleType.secondary ? Colors.secondaryBorderColor :
+  Colors.blackColor
+)
 
 export default Colors;
