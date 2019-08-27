@@ -17,7 +17,6 @@ export default () => {
         { style: "PRIMARY", size: "SMALL" },
         { style: "PRIMARY", size: "MEDIUM" },
         { style: "PRIMARY", size: "LARGE" },
-        { style: "PRIMARY", size: "SMALL", isEnable: false }
       ]
     },
     {
