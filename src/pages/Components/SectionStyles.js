@@ -26,7 +26,7 @@ export const GroupContainer = StyledComponent.div`
 
   > label {
     color: ${Colors.primaryColor};
-    padding: 0px 8px;
+    padding: 0px 4px;
   }
 `;
 

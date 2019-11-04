@@ -91,7 +91,7 @@ function Header(props) {
   return (
     <div>
       <HeaderContainer>
-        <TitleBar>Personal Resume</TitleBar>
+        <TitleBar>Testing</TitleBar>
         <HamburgerButton
           onClick={() => setDropdownVisibility(!dropdownVisibility)}
         >

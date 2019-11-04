@@ -12,6 +12,7 @@ const Colors = {
 
   whiteColor: "#ffffff",
   blackColor: "black",
+  borderColor: "#d8d8d8",
 };
 
 export const getColorByType = (styleType) => (

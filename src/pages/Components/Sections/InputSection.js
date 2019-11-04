@@ -4,6 +4,7 @@ import {
   GroupContainer,
   HeaderTitle,
   ItemContainer,
+  GroupItemContainer,
 } from '../SectionStyles';
 import Input from './../../../components/Reuseable/Input/';
 
@@ -13,7 +14,9 @@ function InputSection() {
       <HeaderTitle>Input</HeaderTitle>
       <ItemContainer>
         <GroupContainer>
-          <Input/>
+          <GroupItemContainer>
+            <Input/>
+          </GroupItemContainer>
         </GroupContainer>
       </ItemContainer>
     </Container>

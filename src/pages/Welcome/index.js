@@ -32,12 +32,12 @@ const PersonalProfilePicture = styled.img`
 export default () => {
   return (
     <Container>
-      {/* <ProfileTextTitle>Profile</ProfileTextTitle>
+      <ProfileTextTitle>Profile</ProfileTextTitle>
       <PersonalProfileContainer>
         <PersonalProfilePictureContainer>
           <PersonalProfilePicture />
         </PersonalProfilePictureContainer>
-      </PersonalProfileContainer> */}
+      </PersonalProfileContainer>
     </Container>
   );
 };

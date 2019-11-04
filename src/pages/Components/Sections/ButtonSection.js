@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import StyledComponent from "styled-components";
 import Button from "./../../../components/Reuseable/Button";
 import {
@@ -47,7 +47,7 @@ export default () => {
               {
                 Group.groupItems.map(
                   ({size, style, isEnable = false}, itemKey) => (
-                    <ButtonContainer key={itemKey}>
+                    <ButtonContainer key={itemKey} isLastItem={itemKey === Group.groupItems.length - 1}>
                       <label>{size}</label>
                       <Button text="Button 1" buttonStyle={style} buttonSize={size} isEnable={isEnable} />
                     </ButtonContainer>
@@ -65,9 +65,10 @@ export default () => {
 const ButtonContainer = StyledComponent.div`
   display: flex;
   flex-direction: column;
-  padding: 4px;
+  margin-right: ${props => props.isLastItem ? '0px' : '8px'};
   
   > label {
+    padding: 0px;
     margin-bottom: 8px;
   }
 `;

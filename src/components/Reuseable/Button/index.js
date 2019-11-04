@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StyledComponent from "styled-components";
-import Colors, { getColorByType } from "./../../../constants/colors";
+import Colors,{ getColorByType } from "./../../../constants/colors";
 import { getSizeByType, SizeType, StyleType } from "./../../../constants/types";
 
 const StyledButton = StyledComponent.div`
@@ -47,8 +47,7 @@ const StyledButton = StyledComponent.div`
 	display: inline-block;
 	outline: 0;
 	text-align: center;
-
-`
+`;
 
 function Button (props) {
 	const {
